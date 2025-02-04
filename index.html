@@ -30,9 +30,20 @@
           console.error('Error loading Embedded Messaging: ', err);
         }
       };
-      embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+      //Passing Web Context to Prechat - BEGIN
+        
+    window.addEventListener("onEmbeddedMessagingReady", e => {
+        //log event
+        console.log("onEmbeddedMessagingReady event triggered");
+        
+        
+      
+        //Set invisible prechat field
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
             "BW_App" : "NetSuite"
         });
+    });
+    //Passing Web Context to Prechat - END
     </script>
     <script type='text/javascript' src='https://orgfarm-9e1d0d9c75-dev-ed.develop.my.site.com/ESWESAAgentDeployment1738666091167/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
   </body>
